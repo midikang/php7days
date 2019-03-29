@@ -1,13 +1,6 @@
 <?php
-
-$conn = mysqli_connect('localhost','root','root', 'php7days');
-if (mysqli_errno($conn)){
-  mysqli_error($conn);
-  exit;
-}
-
-mysqli_set_charset($conn, "utf8");
-
+//引入数据库连接
+include 'conn.php';
 
 $sql = "select id, username, createtime, createip from user order by id desc";
 
