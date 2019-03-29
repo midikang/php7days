@@ -2,7 +2,44 @@
 //引入数据库连接
 include 'conn.php';
 
-$sql = "select id, username, createtime, createip from user order by id desc";
+###一、计算出分页所需的参数
+
+####总数
+$count_sql = 'select count(id) as c from user';
+$result = mysqli_query($conn, $count_sql);
+$data = mysqli_fetch_assoc($result);
+$count = $data['c'];
+
+####当前页
+if(isset($_GET['page'])){
+  $page = (int)$_GET['page'];
+} else{
+  $page = 1;
+}
+
+###最后一页
+
+//每页显示数
+$num = 5;
+
+$total = ceil($count / $num);
+
+//修正第一页和最后一页
+if ($page<=1) {
+  $page = 1;
+}
+
+if ($page >= $total) {
+  $page = $total;
+}
+
+$offset = ($page -1) * $num;
+
+
+$sql = "select id, username, createtime, createip
+from user order by id desc
+limit $offset, $num
+";
 
 $result = mysqli_query($conn, $sql);
 
@@ -33,6 +70,17 @@ if($result && mysqli_num_rows($result)){
     echo "</tr>";
   }
 
+  // 显示分页
+  echo '<tr>
+    <td colspan="6">
+      <a href="list.php?page=1">首页</a>
+      <a href="list.php?page=' . (($page-1) <= 1 ? 1 : ($page-1)) . '">上一页</a>
+      <a href="list.php?page=' . (($page+1) >= $total ? $total : ($page+1)) . '">下一页</a>
+      <a href="list.php?page=' . $total . '">尾页</a>
+      当前是第'. $page . '页 共' . $total . '页
+    </td>
+  </tr>';
+
   echo '</table>';
 
   echo '<input type="submit" value="删除"/>';
@@ -41,5 +89,6 @@ if($result && mysqli_num_rows($result)){
   echo "没有数据";
 }
 
+//关闭连接
 mysqli_close($conn);
 ?>
