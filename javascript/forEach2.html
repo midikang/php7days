@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var A = ["1", "5", "6", "8"];
+      var B = ["1", "5", "8"];
+      var result = [];
+
+      for (var i=0; i< A.length; i++){
+        for(var j=0; j< B.length; j++ ) {
+          if(A[i] == B[j]){
+            result.push(A[i]);
+            break;
+          }
+        }
+      }
+      console.log(result);
+
+      // forEach写法。虽然代简洁，但写的时候容易出错
+      var A = ["1", "5", "6", "8"];
+      var B = ["1", "5", "8"];
+      var result = [];
+      A.forEach(
+        (a, index) =>{
+          B.forEach(
+            (b,idx) =>{
+              if(a==b){
+                result.push(a);
+              }
+            }
+          )
+        }
+      );
+      console.log(result);
+
+
+    </script>
+  </body>
+</html>
