@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let all_schools = [{
+        id: 1,
+        name: '民办阳浦小学'
+      },
+      {
+        id: 2,
+        name: '逸夫小学'
+      },
+      {
+        id: 5,
+        name: '宏星小学'
+      },
+      {
+        id: 8,
+        name: '盛大花园小学'
+      },
+    ]
+  let target_schools =[
+    {area: '徐汇区', id: 1, name: '民办阳浦小学'},
+    {area: '松江区', id: 5, name: '逸夫小学'},
+    {area: '虹口区', id: 8, name: '盛大花园小学'},
+  ]
+
+  //find() 方法
+  let defa = target_schools.find(
+    (target_school) =>{
+      return target_school
+    }
+  )
+  console.log(defa); // {area: "徐汇区", id: 1, name: "民办阳浦小学"}
+  console.log(defa.id); //1
+
+
+  //https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+  // find() 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+  var array1 = [5, 12, 8, 130, 44];
+  var found = array1.find(
+    function(element){
+      return element > 10;
+    }
+  );
+  console.log(found);
+
+  </script>
+</body>
+
+</html>
