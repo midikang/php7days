@@ -45,7 +45,8 @@ $person = array(
 );
 
 d($person);
-
+echo count($person) . '<br/>'; //3
+echo count($person['family']) . '<br/>'; // 4
 //那如何访问：爷爷和爸爸这两个值呢？
 //先写上变量，中括号写上family这个下标，再写上要访问元素的下标。
 
