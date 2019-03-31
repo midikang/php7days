@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let all_schools = [{
+        id: 1,
+        name: '民办阳浦小学'
+      },
+      {
+        id: 2,
+        name: '逸夫小学'
+      },
+      {
+        id: 5,
+        name: '宏星小学'
+      },
+      {
+        id: 8,
+        name: '盛大花园小学'
+      },
+    ]
+  let target_schools =[
+    {area: '徐汇区', id: 1, name: '民办阳浦小学'},
+    {area: '松江区', id: 5, name: '逸夫小学'},
+    {area: '虹口区', id: 8, name: '盛大花园小学'},
+  ]
+
+  //  findIndex()方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
+  // reverse()从尾部遍历
+
+  let last_school = target_schools.reverse().find(
+    (target_school, index) =>{
+      return target_school
+    }
+  )
+  console.log(last_school);  // {area: "虹口区", id: 8, name: "盛大花园小学"}
+  console.log(last_school.id); //8
+
+  // 找到目标学校中最后一个学校的id
+  let index = all_schools.findIndex(
+    function(element){
+      return element.id == last_school.id;
+    }
+  );
+
+  console.log(index);//3
+
+  </script>
+</body>
+
+</html>
