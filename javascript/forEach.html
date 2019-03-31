@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+  let target_schools =[
+    {area: '徐汇区', id: 1, name: '民办阳浦小学'},
+    {area: '松江区', id: 5, name: '逸夫小学'},
+    {area: '虹口区', id: 8, name: '盛大花园小学'},
+  ]
+
+  //1 定义
+  // function printSchool(school){
+  //   console.log("name:" + school.name);
+  // }
+  //
+  // //2 引用
+  // target_schools.forEach(
+  //   printSchool
+  // );
+
+  // 定义+引用。此处在forEach中定义了一个匿名函数
+  // target_schools.forEach(
+  //   function(school){
+  //     console.log("area:" + school.area + " name:" + school.name);
+  //   }
+  // );
+
+  // 定义+引用, 省略function关键字
+  // target_schools.forEach(
+  //   (school) => {
+  //     console.log("area:" + school.area + " id:" + school.id + " name:" + school.name);
+  //   }
+  // );
+
+  // 取出单个数组中的内容
+  target_schools.forEach(
+    (target_school, index) =>{
+      console.log(target_school);
+    }
+  );
+
+  // 取出单个数组内的单个name
+  target_schools.forEach(
+    (target_school, index) =>{
+      console.log(target_school.name);
+    }
+  );
+
+  let getSchoolNameArray =[];
+  target_schools.forEach(
+    (target_school, index) =>{
+      getSchoolNameArray.push(target_school.name);
+    }
+  );
+  console.log(getSchoolNameArray); //["民办阳浦小学", "逸夫小学", "盛大花园小学"]
+
+  // 其实如果想要拿到数组里的某一项值，存到一个空数组中。**除了forEach， 其实for就可以做到**，但是forEach看起来更简洁
+  let getSchoolIdArray = []
+  for(let i=0; i<target_schools.length; i++){
+    getSchoolIdArray.push(target_schools[i].id);
+  }
+  console.log(getSchoolIdArray);//[1, 5, 8]
+
+  //转换成字符
+  let getSchoolIdArrayString = []
+  for(let i=0; i<target_schools.length; i++){
+    getSchoolIdArrayString.push(`${target_schools[i].id}`);
+  }
+  console.log(getSchoolIdArrayString); //["1", "5", "8"]
+
+  </script>
+</body>
+
+</html>
