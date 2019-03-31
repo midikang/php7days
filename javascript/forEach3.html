@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let all_schools = [
+      { id: 1, name: "民办阳浦小学" },
+      { id: 5, name: "逸夫小学" },
+      { id: 6, name: "宏星小学" },
+      { id: 8, name: "盛大花园小学" }
+    ]
+    let target_schools = [
+      { area: "徐汇区", id: 1, name: "民办阳浦小学" },
+      { area: "松江区", id: 5, name: "逸夫小学" },
+      { area: "虹口区", id: 8, name: "盛大花园小学" }
+    ]
+
+    let selectedSchoolIDS = []
+    // 遍历 target_schools 取出 id
+    target_schools.forEach(element => {
+      selectedSchoolIDS.push(`${element.id}`)
+    });
+    console.log(selectedSchoolIDS);
+    // ["1", "5", "8"]
+
+    let allSchoolIDS = []
+
+    // 遍历 all_schools 取出 id
+    // 出错：Uncaught TypeError: Cannot read property 'all_schools' of undefined
+    // this.props.all_schools.forEach(ele => {
+    //   allSchoolIDS.push(`${ele.id}`)
+    // });
+    // console.log(allSchoolIDS);
+    // // ["1", "5", "6", "8"]
+    //
+    // let list = Array(all_schools ? all_schools.length : 0).fill(true)
+
+    // 双层遍历，寻找两个数组中相同的id，如果相等设为false，下面的子项element和ele单项元素都是id
+    allSchoolIDS.forEach((element, index) => {
+      selectedSchoolIDS.forEach((ele, idx) => {
+        if (element == ele) {
+          // 如果两个数组中有彼此相同的id值，相同的部分需要执行的逻辑操作
+          // 将allSchoolIDS中的单项设为false, 如： list[index] = false
+        }
+      })
+    });
+
+    // 作者：冯冯墨墨
+    // 链接： https: //juejin.im/post/5ca02bd1e51d457d922d4545
+      // 来源： 掘金
+    // 著作权归作者所有。 商业转载请联系作者获得授权， 非商业转载请注明出处。
+  </script>
+</body>
+
+</html>
